@@ -1,19 +1,12 @@
 var vue_app = new Vue({
     el: '#vue-app',
     data: {
-        health: 100,
-        ended: false
+        output: 'Your fav food'
     },
     methods: {
-        punch: function() {
-            this.health -= 10;
-            if(this.health <= 0){
-                this.ended = true;
-            }
-        },
-        restart: function() {
-            this.health = 100;
-            this.ended = false;
+        readRefs: function() {
+            console.log(this.$refs.test.innerText);
+            this.output = this.$refs.input.value;
         }
     },
     computed: {
