@@ -1,22 +1,23 @@
-var vue_app = new Vue({
-    el: '#vue-app',
-    data: {
-        health: 100,
-        ended: false
+var data = {
+    name: 'Coll'
+}
+
+Vue.component('greeting', {
+    template:'<p>Hello i am {{ name }}. <button v-on:click="changeName">Change name</button></p>',
+    data: function() {
+        return data
     },
     methods: {
-        punch: function() {
-            this.health -= 10;
-            if(this.health <= 0){
-                this.ended = true;
-            }
-        },
-        restart: function() {
-            this.health = 100;
-            this.ended = false;
+        changeName: function(){
+            this.name = 'Nam';
         }
-    },
-    computed: {
-        
     }
+});
+
+new Vue({
+    el: '#vue-app-one'
+});
+
+new Vue({
+    el: '#vue-app-two'
 });
